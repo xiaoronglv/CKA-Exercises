@@ -48,19 +48,20 @@ The CKA exam is graded for outcome only (i.e. end state of the system). The path
 
 Some exam items may have multiple parts and therefore have multiple 'checks' (one for each verifiable component of the answer). Candidates will be given credit for each successful check, so partial credit is possible on such items.
 
-Exam items are also setup to be independent of one another.  As long as the candidate does exactly what the questions ask, there will be no dependencies or conflicts, and as long as the candidate correctly achieves the outcome being asked for in the specific exam item, they would earn points for that particular exam item.
+Exam items are also setup to be independent of one another. As long as the candidate does exactly what the questions ask, there will be no dependencies or conflicts, and as long as the candidate correctly achieves the outcome being asked for in the specific exam item, they would earn points for that particular exam item.
 
 Scoring is done using an automatic grading script. The grading scripts have been time tested and continuously refined, so the likelihood of having incorrectly graded a question or two is very low since we grade on outcomes (end state of the system), not the path the user took to get there.
 
 ## Updates - as of October 2022
 
 The CKA exam is currently on v1.27 of k8s. The removal of dockershim happend in v1.24, so expect the containerd container runtime if you are taking the exam today and into the future. You can view the container runtime in use with the command `k get no -o wide`. The output will look similar to this (see the column named "CONTAINER-RUNTIME"):
+
 ```bash
 NAME           STATUS   ROLES           AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 controlplane   Ready    control-plane   7d5h   v1.27.1   172.30.1.2    <none>        Ubuntu 20.04.5 LTS   5.4.0-131-generic   containerd://1.6.12
 node01         Ready    <none>          7d4h   v1.27.1   172.30.2.2    <none>        Ubuntu 20.04.5 LTS   5.4.0-131-generic   containerd://1.6.12
 ```
 
-
 ## Exam Release Cycle
+
 The exams are upgraded to the latest version of k8s within 4-6 weeks of the version being released. [Dockershim FAQ](https://kubernetes.io/blog/2020/12/02/dockershim-faq/)
