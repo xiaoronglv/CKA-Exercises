@@ -30,7 +30,7 @@ rules:
 # create the role
 kubectl apply -f role.yml
 
-# or imperatively 
+# or imperatively
 
 kubectl -n default create role pod-reader --verb=get,watch,list --resource=pods,pods/logs
 ```
@@ -66,4 +66,3 @@ kubectl -n default create rolebinding pod-reader --role=pod-reader --user=dev
 
 </p>
 </details>
-

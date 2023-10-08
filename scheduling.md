@@ -10,66 +10,6 @@ kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Acce
 
 kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
-### Create a deployment from a YAML file named deploy.yml
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl apply -f deploy.yml
-```
-
-</p>
-</details>
-
-### Describe a pod named nginx
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl describe po nginx
-```
-
-</p>
-</details>
-
-### Delete a pod named nginx
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl delete po nginx
-```
-
-</p>
-</details>
-
-### Create a deployment named nginx and use the image nginx
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl create deploy nginx --image=nginx
-```
-
-</p>
-</details>
-
-### Create the YAML specification for a deployment named nginx, outputting to a file named deploy.yml
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl create deployment nginx --image=nginx --dry-run -o yaml > deploy.yml
-```
-
-</p>
-</details>
-
 ### Create a configmap named my-configmap with two values, one single line and one multi-line
 
 <details><summary>show</summary>
@@ -150,15 +90,14 @@ metadata:
   name: fast
 spec:
   nodeSelector: ### ADD THIS LINE
-    disk: ssd   ### ADD THIS LINE
+    disk: ssd ### ADD THIS LINE
   containers:
-  - image: nginx
-    name: fast
+    - image: nginx
+      name: fast
 ```
 
 </p>
 </details>
-
 
 ### Edit the “fast” pod (created above), changing the node selector to “disk=slow.” Notice that the pod cannot be changed, and the YAML was saved to a temporary location. Take the YAML in /tmp/ and apply it by force to delete and recreate the pod using a single imperative command
 
@@ -181,10 +120,10 @@ metadata:
   name: fast
 spec:
   nodeSelector:
-    disk: slow  ### CHANGE THIS LINE
+    disk: slow ### CHANGE THIS LINE
   containers:
-  - image: nginx
-    name: fast
+    - image: nginx
+      name: fast
 ```
 
 ```bash
@@ -226,28 +165,28 @@ metadata:
     run: ssd-pod
   name: ssd-pod
 spec:
-############## START HERE ############################
+  ############## START HERE ############################
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/os
-            operator: In
-            values:
-            - linux
+          - matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                  - linux
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
-          matchExpressions:
-          - key: disk
-            operator: In
-            values:
-            - ssd
-############## END HERE ############################
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: disk
+                operator: In
+                values:
+                  - ssd
+  ############## END HERE ############################
   containers:
-  - image: nginx
-    name: ssd-pod
+    - image: nginx
+      name: ssd-pod
 ```
 
 </p>

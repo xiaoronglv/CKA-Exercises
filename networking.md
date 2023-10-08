@@ -10,30 +10,6 @@ kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Acce
 
 kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
-### Drain a node for maintenance named `node1.mylabserver.com`
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl drain node1.mylabserver.com --ignore-daemonsets --force
-```
-
-</p>
-</details>
-
-### Put the node `node1.mylabserver.com` back into service, so pods can be scheduled to it
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl uncordon node1.mylabserver.com
-```
-
-</p>
-</details>
-
 ### Updgrade kubeadm to version 1.18.6
 
 <details><summary>show</summary>
@@ -110,42 +86,6 @@ sudo kubeadm upgrade node
 </p>
 </details>
 
-### List all namespaces in your cluster
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl get ns
-```
-
-</p>
-</details>
-
-### List all pod in all namespaces
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl get po --all-namespaces
-```
-
-</p>
-</details>
-
-### Create a new namespace named web
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl create ns web
-```
-
-</p>
-</details>
-
 ### Look up the value for the key `cluster.name` in the etcd cluster and backup etcd
 
 <details><summary>show</summary>
@@ -182,7 +122,7 @@ sudo rm -rf /var/lib/etcd
 </p>
 </details>
 
-### Restore an etcd store from backup. 
+### Restore an etcd store from backup.
 
 <details><summary>show</summary>
 <p>
