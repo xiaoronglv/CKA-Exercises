@@ -13,18 +13,6 @@ echo "source <(kubectl completion bash)" >> ~/.bashrc
 </p>
 </details>
 
-### Show kubeconfig settings
-
-<details><summary>show</summary>
-<p>
-
-```bash
-kubectl config view
-```
-
-</p>
-</details>
-
 ### Use multiple kubeconfig files at the same time
 
 <details><summary>show</summary>
